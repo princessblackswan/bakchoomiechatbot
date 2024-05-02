@@ -33,19 +33,13 @@ def chunk_data(data, chunk_size=300, chunk_overlap=50):
     chunks = text_splitter.split_documents(data)
     return chunks
 
-def create_embeddings_chroma(chunks, persist_directory= './chroma_db'):
+def create_embeddings_chroma(chunks):
     from langchain.vectorstores import chroma
     from langchain.embeddings import OpenAIEmbeddings
     embeddings = OpenAIEmbeddings(model = 'text-embedding-ada-002')
-    vector_store = chroma.Chroma.from_documents(chunks, embeddings, persist_directory = persist_directory)
+    vector_store = chroma.Chroma.from_documents(chunks, embeddings)
     return vector_store
 
-def load_embeddings_chroma(persist_directory= './chroma_db'):
-    from langchain.vectorstores import chroma
-    from langchain.embeddings import OpenAIEmbeddings
-    embeddings = OpenAIEmbeddings(model = 'text-embedding-ada-002')
-    vector_store = chroma.Chroma(persist_directory=persist_directory, embedding_function=embeddings)
-    return vector_store
 
 
 #Cretae flexible prompt template -- pls feel free to use
