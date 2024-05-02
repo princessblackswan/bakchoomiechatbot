@@ -7,11 +7,6 @@ from langchain.embeddings import OpenAIEmbeddings
 import os
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv(), override=True)
-
-
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import sqlite3
 
 def load_document(file):
