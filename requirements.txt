@@ -1,0 +1,12 @@
+chatgpt==2.2212.0
+chromadb==0.4.15
+langchain==0.1.17
+langchain-community==0.0.36
+langchain-core==0.1.48
+langchain-experimental==0.0.53
+langchain-google-genai==0.0.11
+langchain-text-splitters==0.0.1
+langchainhub==0.1.15
+openai==0.28.1
+streamlit==1.24.0
+streamlit-chat==0.1.1
