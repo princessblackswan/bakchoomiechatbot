@@ -1,4 +1,5 @@
 chatgpt==2.2212.0
+chroma-hnswlib==0.7.3
 chromadb==0.4.15
 docx2txt==0.8
 pypdf==3.17.0
