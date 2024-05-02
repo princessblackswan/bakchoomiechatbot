@@ -8,6 +8,11 @@ import os
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv(), override=True)
 
+
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 def load_document(file):
     import os
     name, extension = os.path.splitext(file)
@@ -36,7 +41,7 @@ def chunk_data(data, chunk_size=300, chunk_overlap=50):
 def create_embeddings_chroma(chunks):
     from langchain.vectorstores import chroma
     from langchain.embeddings import OpenAIEmbeddings
-    embeddings = OpenAIEmbeddings(model = 'text-embedding-ada-002')
+    embeddings = OpenAIEmbeddings(model = 'text-embedding-3-large')
     vector_store = chroma.Chroma.from_documents(chunks, embeddings)
     return vector_store
 
